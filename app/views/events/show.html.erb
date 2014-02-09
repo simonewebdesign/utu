@@ -7,7 +7,7 @@
 
 <p>
   <strong>Amount:</strong>
-  <%= @event.amount %>
+  <%= number_to_currency(@event.amount, unit: '£') %>
 </p>
 
 <p>

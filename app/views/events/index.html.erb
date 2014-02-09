@@ -1,5 +1,7 @@
 <h1>Listing events</h1>
 
+<% unless @events.empty? %>
+
 <table>
   <thead>
     <tr>
@@ -25,12 +27,17 @@
 
   <tfoot>
     <tr>
-      <td colspan="2">
+      <td>Total:</td>
+      <td>
         <%= number_to_currency(@sum, unit: '£') %>
       </td>
     </tr>
   </tfoot>
 </table>
+
+<% else %>
+  <p>There are no events yet.</p>
+<% end %>
 
 <br>
 

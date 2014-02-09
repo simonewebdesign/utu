@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140208225539) do
+ActiveRecord::Schema.define(version: 20140209012941) do
 
   create_table "events", force: true do |t|
     t.date     "event_date"
     t.decimal  "amount",      precision: 8, scale: 2
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "tag_id"
+  end
+
+  add_index "events", ["tag_id"], name: "index_events_on_tag_id"
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

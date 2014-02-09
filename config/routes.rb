@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :events
+  resources :tags
 
   get "main/about"
 
