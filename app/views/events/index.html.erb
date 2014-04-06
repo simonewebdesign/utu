@@ -1,13 +1,12 @@
 <h1>Listing events</h1>
 
-<% unless @events.empty? %>
-
 <table>
   <thead>
     <tr>
       <th>Event date</th>
       <th>Amount</th>
       <th>Description</th>
+      <th>Tag</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,28 +15,16 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.event_date %></td>
-        <td><%= number_to_currency(event.amount, unit: '£') %></td>
+        <td><%= event.amount %></td>
         <td><%= event.description %></td>
+        <td><%= event.tag %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
-
-  <tfoot>
-    <tr>
-      <td>Total:</td>
-      <td>
-        <%= number_to_currency(@sum, unit: '£') %>
-      </td>
-    </tr>
-  </tfoot>
 </table>
-
-<% else %>
-  <p>There are no events yet.</p>
-<% end %>
 
 <br>
 

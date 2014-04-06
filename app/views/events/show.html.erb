@@ -7,12 +7,17 @@
 
 <p>
   <strong>Amount:</strong>
-  <%= number_to_currency(@event.amount, unit: '£') %>
+  <%= @event.amount %>
 </p>
 
 <p>
   <strong>Description:</strong>
   <%= @event.description %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @event.tag %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
